@@ -1,0 +1,2 @@
+# Praktikum_Algorithmen_und_Datenstrukturen
+Repo für Bearbeitung unserer Abgaben
