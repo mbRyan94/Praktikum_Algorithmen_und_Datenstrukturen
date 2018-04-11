@@ -1,0 +1,73 @@
+package hm.edu.cs.algdat.disjointset;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Implementierung von {@link DisjointIntegerSets}.
+ * 
+ * @author katz.bastian
+ */
+public class MyDisjointIntegerSets implements DisjointIntegerSets {
+	
+	int representants[];
+	int size;
+
+	/**
+	 * Erzeugt eine Disjoint-Set Datenstruktur für die Zahlen 0 bis size-1.
+	 * Initial repräsentiert jede Zahl sich selbst, d.h. es gibt size
+	 * einelementige Mengen.
+	 * 
+	 * @param size
+	 *            Größe der Datenstruktur, d.h. Anzahl der Elemente
+	 */
+	public MyDisjointIntegerSets(int size) {
+		//TODO: Konstruktor ergänzen
+		representants = new int[size];
+		this.size = size;
+		for (int i=0; i < size; i++) {
+			representants[i] = i;
+		}
+		
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see hm.edu.cs.algdat.disjointset.DisjointIntegerSet#find(int)
+	 */
+	@Override
+	public int find(int a) {
+		//TODO: Repräsentanten finden/zurückgeben	
+		int value = representants[a];
+		List subSet = new ArrayList();
+		
+		for(int i = 0; i < representants.length; i++) {
+			if (representants[i] == value) {
+				subSet.add(i);
+			}
+		}
+		System.out.println(subSet);
+		System.out.println((int) subSet.get(0));
+		return (int) subSet.get(0);
+		
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see hm.edu.cs.algdat.disjointset.DisjointIntegerSet#union(int, int)
+	 */
+	@Override
+	public void union(int a, int b) {
+		//TODO: Datenstruktur aktualisieren!
+		representants[a] = representants[b];
+	}
+
+	@Override
+	public int size() {
+		//TODO: Länge zurückgeben
+		return this.size;
+	}
+}
